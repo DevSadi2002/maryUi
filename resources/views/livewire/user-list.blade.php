@@ -1,6 +1,13 @@
 <div wire:poll.keep-alive>
     <x-card>
-        <x-input wire:model.live.debounce.300ms="search" placeholder="Search..." class="w-full mb-4" />
+        <div class="flex items-center justify-between mb-4 gap-2">
+            <x-input wire:model.live.debounce.300ms="search" placeholder="بحث..." class="w-full" />
+
+
+        </div>
+
+
+
 
         <x-table :headers="$headers" :rows="$users">
             @scope('cell_image', $user)

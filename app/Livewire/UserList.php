@@ -11,7 +11,7 @@ use Mary\Traits\Toast;
 class UserList extends Component
 {
     use WithPagination, Toast;
-    public array $sortBy = ['column' => 'id', 'direction' => 'asc'];
+    public array $sortBy = ['column' => 'name', 'direction' => 'asc'];
     public $search;
     public $confirmingDelete = false;
     public $confirmingUpdate = false;
@@ -116,6 +116,7 @@ class UserList extends Component
             session()->flash('failed', 'فشل حذف المستخدم.');
         }
     }
+
 
 
     public function render()
