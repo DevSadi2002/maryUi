@@ -1,15 +1,19 @@
 <div wire:poll.keep-alive>
-    <x-card>
+
+    <div wire:offline>
+        <x-alert title="فصل النت" description="Ho!" icon="o-home" class="alert-warning" />
+    </div>
+
+    <x-card shadow>
         <div class="flex items-center justify-between mb-4 gap-2">
-            <x-input wire:model.live.debounce.300ms="search" placeholder="بحث..." class="w-full" />
-
-
+            {{-- <x-input wire:model.live.debounce.300ms="search" placeholder="بحث..." class="w-full" /> --}}
+            <x-input placeholder="بحث..." wire:model.live.debounce="search" clearable icon="o-magnifying-glass" />
         </div>
 
 
 
 
-        <x-table :headers="$headers" :rows="$users">
+        <x-table :headers="$headers" :rows="$users" :sort-by="$sortBy">
             @scope('cell_image', $user)
                 @if ($user->image)
                     <img src="{{ Storage::url($user->image) }}" alt="صورة الحساب" class="w-12 h-12 rounded-full">

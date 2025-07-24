@@ -1,16 +1,13 @@
 <div wire:poll.keep-alive class="space-y-6">
     <x-card title="إنشاء حساب جديد" class="mb-6">
-        <x-form wire:submit="create">
+        <x-form wire:keydown.space="create" wire:submit="create">
             <x-errors title="حدث خطأ!" description="يرجى تصحيح الأخطاء أدناه." icon="o-face-frown" />
 
             @if (session()->has('done'))
                 <x-alert title="نجاح" description="{{ session('done') }}" icon="o-check-circle" class="alert-success" />
             @endif
 
-            <!-- إشعار عند فقدان الاتصال -->
-            <div wire:offline>
-                <x-alert title="فصل النت" description="Ho!" icon="o-home" class="alert-warning" />
-            </div>
+
 
             <div class="mb-4">
                 <x-input label="الاسم" wire:model="name" />

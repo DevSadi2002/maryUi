@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html dir="rtl" lang="ar" class="h-full">
+
+{{-- This is the main layout for the application --}}
+{{-- It includes the header, sidebar, and main content area --}}
 
 <head>
     <meta charset="utf-8">
@@ -16,7 +19,10 @@
     {{-- haeder include --}}
     @include('components.layouts.header')
 
-
+    <!-- إشعار عند فقدان الاتصال -->
+    <div wire:offline>
+        <x-alert title="فصل النت" description="Ho!" icon="o-home" class="alert-warning" />
+    </div>
 
     {{-- MAIN --}}
     <x-main>
